@@ -1,19 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func solution(number int, n int, m int) int {
-	if number%n == 0 && number%m == 0 {
-		return 1
+func solution(a int, d int, included []bool) int {
+	var seq = a
+	var r int
+	for i := 0; i < len(included); i++ {
+		if included[i] {
+			r = r + seq
+		}
+		seq = seq + d
 	}
-	return 0
+	return r
 }
 
 func main() {
-	r := solution(60, 2, 3)
+	r := solution(3, 4, []bool{true, false, false, true, true})
 	fmt.Println(r)
 
-	r = solution(55, 10, 5)
+	r = solution(7, 1, []bool{false, false, false, true, false, false, false})
 	fmt.Println(r)
 
 }
