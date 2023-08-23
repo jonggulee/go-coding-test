@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"strconv"
-)
+import "strconv"
 
 func solution(l int, r int) []int {
 	var ret []int
@@ -13,7 +8,6 @@ func solution(l int, r int) []int {
 
 		for _, digit := range strNum {
 			if digit != '0' && digit != '5' {
-				fmt.Println(digit, strNum)
 				allValid = false
 				break
 			}
@@ -29,15 +23,4 @@ func solution(l int, r int) []int {
 	}
 
 	return ret
-}
-
-func main() {
-	r := solution(5, 555)
-	fmt.Println(r)
-
-	r = solution(10, 20)
-	fmt.Println(r)
-
-	// r = solution("10203", "15")
-	// fmt.Println(r)
 }
