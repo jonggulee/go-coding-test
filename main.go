@@ -4,27 +4,14 @@ import (
 	"fmt"
 )
 
-func solution(arr []int) []int {
-	stk := []int{}
-	i := 0
-	for i < len(arr) {
-		if len(stk) == 0 {
-			stk = append(stk, arr[i])
-			i++
-		} else if stk[len(stk)-1] < arr[i] {
-			stk = append(stk, arr[i])
-			i++
-		} else {
-			stk = stk[:len(stk)-1]
-		}
-	}
-	return stk
+func solution(x1 bool, x2 bool, x3 bool, x4 bool) bool {
+	return (x1 || x2) && (x3 || x4)
 }
 
 func main() {
-	r := solution([]int{1, 4, 2, 5, 3})
+	r := solution(false, true, true, true)
 	fmt.Println(r)
 
-	// r = solution("10203", "15")
-	// fmt.Println(r)
+	r = solution(true, false, false, false)
+	fmt.Println(r)
 }
