@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(arr []int) []int {
 	stk := []int{}
 	i := 0
@@ -19,12 +13,4 @@ func solution(arr []int) []int {
 		}
 	}
 	return stk
-}
-
-func main() {
-	r := solution([]int{1, 4, 2, 5, 3})
-	fmt.Println(r)
-
-	// r = solution("10203", "15")
-	// fmt.Println(r)
 }
