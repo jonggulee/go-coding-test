@@ -1,11 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"math"
-	"sort"
-)
-
 func solution(a int, b int, c int, d int) int {
 	count := make(map[int]int)
 
@@ -50,21 +42,4 @@ func solution(a int, b int, c int, d int) int {
 	}
 
 	return 0
-}
-
-func main() {
-	r := solution(2, 2, 2, 2)
-	fmt.Println(r)
-
-	r = solution(4, 1, 4, 4)
-	fmt.Println(r)
-
-	r = solution(6, 3, 3, 6)
-	fmt.Println(r)
-
-	r = solution(2, 5, 2, 6)
-	fmt.Println(r)
-
-	r = solution(6, 4, 2, 5)
-	fmt.Println(r)
 }
