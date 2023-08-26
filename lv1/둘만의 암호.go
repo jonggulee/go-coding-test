@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(s string, skip string, index int) string {
 	result := ""
 	skipSet := make(map[rune]bool)
@@ -31,12 +25,4 @@ func solution(s string, skip string, index int) string {
 	}
 
 	return result
-}
-
-func main() {
-	r := solution("aukks", "wbqd", 5)
-	fmt.Println(r)
-
-	// r = solution("78720646226947352489")
-	// fmt.Println(r)
 }
