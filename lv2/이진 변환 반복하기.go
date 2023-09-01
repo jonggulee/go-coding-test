@@ -1,5 +1,3 @@
-package main
-
 import (
 	"fmt"
 )
@@ -35,15 +33,4 @@ func decimalToBinary(decimal int) string {
 		decimal = decimal / 2
 	}
 	return binary
-}
-
-func main() {
-	r := solution("110010101001")
-	fmt.Println(r)
-
-	r = solution("01110")
-	fmt.Println(r)
-
-	r = solution("1111111")
-	fmt.Println(r)
 }
