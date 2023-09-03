@@ -4,20 +4,23 @@ import (
 	"fmt"
 )
 
-func solution(x int, n int) (answer []int64) {
-	for i := 1; i <= n; i++ {
-		answer = append(answer, int64(i*x))
+func solution(progresses []int, speeds []int) []int {
+	for i := 0; i < len(progresses); i++ {
+		if progresses[i] < 100 {
+			progresses[i] += speeds[i]
+		}
 	}
-	return
+	// return progresses
+	return []int{}
 }
 
 func main() {
-	r := solution(2, 5)
+	r := solution([]int{93, 30, 55}, []int{1, 30, 5})
 	fmt.Println(r)
 
-	r = solution(4, 3)
+	r = solution([]int{95, 90, 99, 99, 80, 99}, []int{1, 1, 1, 1, 1, 1})
 	fmt.Println(r)
 
-	r = solution(-4, 2)
-	fmt.Println(r)
+	// r = solution(-4, 2)
+	// fmt.Println(r)
 }
