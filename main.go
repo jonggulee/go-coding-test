@@ -4,21 +4,23 @@ import (
 	"fmt"
 )
 
-func solution(progresses []int, speeds []int) []int {
-	for i := 0; i < len(progresses); i++ {
-		if progresses[i] < 100 {
-			progresses[i] += speeds[i]
-		}
+func solution(my_string string, s int, e int) string {
+	myBytes := []byte(my_string)
+
+	for i, j := s, e; i < j; i, j = i+1, j-1 {
+		myBytes[i], myBytes[j] = myBytes[j], myBytes[i]
 	}
-	// return progresses
-	return []int{}
+
+	return string(myBytes)
+
+	// return ""
 }
 
 func main() {
-	r := solution([]int{93, 30, 55}, []int{1, 30, 5})
+	r := solution("Progra21Sremm3", 6, 12)
 	fmt.Println(r)
 
-	r = solution([]int{95, 90, 99, 99, 80, 99}, []int{1, 1, 1, 1, 1, 1})
+	r = solution("Stanley1yelnatS", 4, 10)
 	fmt.Println(r)
 
 	// r = solution(-4, 2)
