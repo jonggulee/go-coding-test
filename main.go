@@ -4,19 +4,21 @@ import (
 	"fmt"
 )
 
-func solution(my_string string, m int, c int) string {
-	r := ""
-	for i := 0; i < len(my_string); i = i + m {
-		r = r + string(my_string[i : m+i][c-1])
+func solution(q int, r int, code string) string {
+	ret := ""
+	for i := 0; i < len(code); i++ {
+		if i%q == r {
+			ret += string(code[i])
+		}
 	}
-	return r
+	return ret
 }
 
 func main() {
-	r := solution("ihrhbakrfpndopljhygc", 4, 2)
+	r := solution(3, 1, "qjnwezgrpirldywt")
 	fmt.Println(r)
 
-	r = solution("programmers", 1, 1)
+	r = solution(1, 0, "programmers")
 	fmt.Println(r)
 
 	// r = solution(-4, 2)
