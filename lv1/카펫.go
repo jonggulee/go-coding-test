@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"math"
-)
+import "math"
 
 func solution(brown int, yellow int) []int {
 	total := brown + yellow
@@ -17,15 +12,4 @@ func solution(brown int, yellow int) []int {
 	}
 
 	return []int{}
-}
-
-func main() {
-	r := solution(10, 2)
-	fmt.Println(r)
-
-	r = solution(8, 1)
-	fmt.Println(r)
-
-	r = solution(24, 24)
-	fmt.Println(r)
 }
