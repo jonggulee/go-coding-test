@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(n int, slicer []int, num_list []int) []int {
 	switch n {
 	case 1:
@@ -20,15 +14,4 @@ func solution(n int, slicer []int, num_list []int) []int {
 		return ret
 	}
 	return []int{}
-}
-
-func main() {
-	r := solution(3, []int{1, 5, 2}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9})
-	fmt.Println(r)
-
-	r = solution(4, []int{1, 5, 2}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9})
-	fmt.Println(r)
-
-	// r = solution(24, 24)
-	// fmt.Println(r)
 }
