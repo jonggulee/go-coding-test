@@ -4,21 +4,36 @@ import (
 	"fmt"
 )
 
-func solution(arr []int, intervals [][]int) []int {
-	ret := []int{}
-	for _, v := range intervals {
-		ret = append(ret, arr[v[0]:v[1]+1]...)
+func solution(arr []int) []int {
+	firstIndex := -1
+	lastIndex := -1
+
+	for i, v := range arr {
+		if v == 2 {
+			if firstIndex == -1 {
+				firstIndex = i
+			}
+			lastIndex = i
+		}
 	}
-	return ret
+
+	if lastIndex == -1 {
+		return []int{-1}
+	}
+
+	return arr[firstIndex : lastIndex+1]
 }
 
 func main() {
-	r := solution([]int{1, 2, 3, 4, 5}, [][]int{{1, 3}, {0, 4}})
+	r := solution([]int{1, 2, 1, 4, 5, 2, 9})
 	fmt.Println(r)
 
-	// r = solution(4, []int{1, 5, 2}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9})
-	// fmt.Println(r)
+	r = solution([]int{1, 2, 1})
+	fmt.Println(r)
 
-	// r = solution(24, 24)
-	// fmt.Println(r)
+	r = solution([]int{1, 1, 1})
+	fmt.Println(r)
+
+	r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
+	fmt.Println(r)
 }
