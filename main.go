@@ -5,14 +5,14 @@ import (
 )
 
 func solution(num_list []int, n int) []int {
-	return num_list[n-1:]
+	return append(num_list[n:], num_list[:n]...)
 }
 
 func main() {
-	r := solution([]int{2, 1, 6}, 3)
+	r := solution([]int{2, 1, 6}, 1)
 	fmt.Println(r)
 
-	r = solution([]int{5, 2, 1, 7, 5}, 2)
+	r = solution([]int{5, 2, 1, 7, 5}, 3)
 	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
