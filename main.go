@@ -4,22 +4,19 @@ import (
 	"fmt"
 )
 
-func solution(str_list []string) []string {
-	for i, v := range str_list {
-		if v == "l" {
-			return str_list[:i]
-		} else if v == "r" {
-			return str_list[i+1:]
-		}
+func solution(num_list []int, n int) []int {
+	ret := []int{}
+	for i := 0; i < len(num_list); i = i + n {
+		ret = append(ret, num_list[i])
 	}
-	return []string{}
+	return ret
 }
 
 func main() {
-	r := solution([]string{"u", "u", "l", "r"})
+	r := solution([]int{4, 2, 6, 1, 7, 6}, 2)
 	fmt.Println(r)
 
-	r = solution([]string{"l"})
+	r = solution([]int{4, 2, 6, 1, 7, 6}, 4)
 	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
