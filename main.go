@@ -4,19 +4,23 @@ import (
 	"fmt"
 )
 
-func solution(num_list []int, n int) []int {
-	ret := []int{}
-	for i := 0; i < len(num_list); i = i + n {
-		ret = append(ret, num_list[i])
+func solution(numbers []int, n int) int {
+	ret := 0
+	for i := 0; i < len(numbers); i++ {
+		ret += numbers[i]
+		if n < ret {
+			return ret
+		}
 	}
-	return ret
+
+	return 0
 }
 
 func main() {
-	r := solution([]int{4, 2, 6, 1, 7, 6}, 2)
+	r := solution([]int{34, 5, 71, 29, 100, 34}, 123)
 	fmt.Println(r)
 
-	r = solution([]int{4, 2, 6, 1, 7, 6}, 4)
+	r = solution([]int{58, 44, 27, 10, 100}, 139)
 	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
