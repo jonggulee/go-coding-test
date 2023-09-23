@@ -4,24 +4,28 @@ import (
 	"fmt"
 )
 
-func solution(numbers []int, n int) int {
-	ret := 0
-	for i := 0; i < len(numbers); i++ {
-		ret += numbers[i]
-		if n < ret {
-			return ret
+func solution(arr []int) []int {
+	ret := []int{}
+	for _, v := range arr {
+		if v < 50 && v%2 == 1 {
+			v = v * 2
+			ret = append(ret, v)
+		} else if v >= 50 && v%2 == 0 {
+			v = v / 2
+			ret = append(ret, v)
+		} else {
+			ret = append(ret, v)
 		}
 	}
-
-	return 0
+	return ret
 }
 
 func main() {
-	r := solution([]int{34, 5, 71, 29, 100, 34}, 123)
+	r := solution([]int{1, 2, 3, 100, 99, 98})
 	fmt.Println(r)
 
-	r = solution([]int{58, 44, 27, 10, 100}, 139)
-	fmt.Println(r)
+	// r = solution([]int{58, 44, 27, 10, 100}, 139)
+	// fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
