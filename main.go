@@ -2,29 +2,25 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
-func solution(num_list []int) int {
-	if len(num_list) >= 11 {
-		sum := 0
-		for _, num := range num_list {
-			sum += num
-		}
-		return sum
-	} else {
-		product := 1
-		for _, num := range num_list {
-			product *= num
-		}
-		return product
+func solution(myString string, pat string) int {
+	lowString := strings.ToLower(myString)
+	lowPat := strings.ToLower(pat)
+
+	if strings.Contains(lowString, lowPat) {
+		return 1
 	}
+
+	return 0
 }
 
 func main() {
-	r := solution([]int{3, 4, 5, 2, 5, 4, 6, 7, 3, 7, 2, 2, 1})
+	r := solution("AbCdEfG", "aBc")
 	fmt.Println(r)
 
-	r = solution([]int{2, 3, 4, 5})
+	r = solution("aaAA", "aaaaa")
 	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
