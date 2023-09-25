@@ -4,32 +4,25 @@ import (
 	"fmt"
 )
 
-func solution(arr []int) int {
+func solution(num_list []int) int {
 	count := 0
-
-	for {
-		changed := false
-		newArr := make([]int, len(arr))
-		copy(newArr, arr)
-		for i := 0; i < len(arr); i++ {
-			if arr[i] >= 50 && arr[i]%2 == 0 {
-				changed = true
-				arr[i] = arr[i] / 2
-			} else if arr[i] < 50 && arr[i]%2 == 1 {
-				arr[i] = arr[i]*2 + 1
-				changed = true
+	for i := 0; i < len(num_list); i++ {
+		for num_list[i] != 1 {
+			if num_list[i]%2 == 1 {
+				num_list[i] = (num_list[i] - 1) / 2
+				count++
+			} else if num_list[i]%2 == 0 {
+				num_list[i] /= 2
+				count++
 			}
 		}
-
-		if !changed {
-			return count
-		}
-		count++
 	}
+
+	return count
 }
 
 func main() {
-	r := solution([]int{1, 2, 3, 100, 99, 98})
+	r := solution([]int{12, 4, 15, 1, 14})
 	fmt.Println(r)
 
 	// r = solution([]int{58, 44, 27, 10, 100}, 139)
