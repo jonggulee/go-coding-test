@@ -5,28 +5,27 @@ import (
 )
 
 func solution(num_list []int) int {
-	count := 0
-	for i := 0; i < len(num_list); i++ {
-		for num_list[i] != 1 {
-			if num_list[i]%2 == 1 {
-				num_list[i] = (num_list[i] - 1) / 2
-				count++
-			} else if num_list[i]%2 == 0 {
-				num_list[i] /= 2
-				count++
-			}
+	if len(num_list) >= 11 {
+		sum := 0
+		for _, num := range num_list {
+			sum += num
 		}
+		return sum
+	} else {
+		product := 1
+		for _, num := range num_list {
+			product *= num
+		}
+		return product
 	}
-
-	return count
 }
 
 func main() {
-	r := solution([]int{12, 4, 15, 1, 14})
+	r := solution([]int{3, 4, 5, 2, 5, 4, 6, 7, 3, 7, 2, 2, 1})
 	fmt.Println(r)
 
-	// r = solution([]int{58, 44, 27, 10, 100}, 139)
-	// fmt.Println(r)
+	r = solution([]int{2, 3, 4, 5})
+	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
