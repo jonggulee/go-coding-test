@@ -2,26 +2,23 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"strconv"
 )
 
-func solution(myString string, pat string) int {
-	lowString := strings.ToLower(myString)
-	lowPat := strings.ToLower(pat)
-
-	if strings.Contains(lowString, lowPat) {
-		return 1
+func solution(s string) int {
+	ret, err := strconv.Atoi(s)
+	if err != nil {
+		return 0
 	}
-
-	return 0
+	return ret
 }
 
 func main() {
-	r := solution("AbCdEfG", "aBc")
+	r := solution("-1234")
 	fmt.Println(r)
 
-	r = solution("aaAA", "aaaaa")
-	fmt.Println(r)
+	// r = solution("aaAA", "aaaaa")
+	// fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
