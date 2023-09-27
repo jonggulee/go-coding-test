@@ -2,29 +2,15 @@ package main
 
 import (
 	"fmt"
-	"sort"
-	"strconv"
+	"strings"
 )
 
-func solution(n int64) int64 {
-
-	s := strconv.FormatInt(n, 10)
-
-	runeSlice := []rune(s)
-
-	sort.Slice(runeSlice, func(i, j int) bool {
-		return runeSlice[i] > runeSlice[j]
-	})
-
-	sortedStr := string(runeSlice)
-
-	ret, _ := strconv.ParseInt(sortedStr, 10, 64)
-
-	return ret
+func solution(myString string) string {
+	return strings.ToUpper(myString)
 }
 
 func main() {
-	r := solution(118372)
+	r := solution("aBcDeFg")
 	fmt.Println(r)
 
 	// r = solution("aaAA", "aaaaa")
