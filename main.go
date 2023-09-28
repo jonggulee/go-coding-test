@@ -6,7 +6,7 @@ import (
 )
 
 func solution(myString string) string {
-	return strings.ToUpper(myString)
+	return strings.ToLower(myString)
 }
 
 func main() {
