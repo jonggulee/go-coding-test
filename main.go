@@ -5,16 +5,17 @@ import (
 	"strings"
 )
 
-func solution(myString string) string {
-	return strings.ToLower(myString)
+func solution(myString string, pat string) string {
+	lastIndex := strings.LastIndex(myString, pat)
+	return myString[:lastIndex+len(pat)]
 }
 
 func main() {
-	r := solution("aBcDeFg")
+	r := solution("AbCdEFG", "dE")
 	fmt.Println(r)
 
-	// r = solution("aaAA", "aaaaa")
-	// fmt.Println(r)
+	r = solution("AAAAaaaa", "a")
+	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
