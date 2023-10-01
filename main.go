@@ -5,17 +5,22 @@ import (
 	"strings"
 )
 
-func solution(myString string, pat string) string {
-	lastIndex := strings.LastIndex(myString, pat)
-	return myString[:lastIndex+len(pat)]
+func solution(strArr []string) []string {
+	ret := []string{}
+	for i := 0; i < len(strArr); i++ {
+		if !strings.Contains(strArr[i], "ad") {
+			ret = append(ret, strArr[i])
+		}
+	}
+	return ret
 }
 
 func main() {
-	r := solution("AbCdEFG", "dE")
+	r := solution([]string{"and", "notad", "abcd"})
 	fmt.Println(r)
 
-	r = solution("AAAAaaaa", "a")
-	fmt.Println(r)
+	// r = solution([]string{"there", "are", "no", "a", "ds"})
+	// fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
