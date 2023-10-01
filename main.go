@@ -5,21 +5,15 @@ import (
 	"strings"
 )
 
-func solution(strArr []string) []string {
-	ret := []string{}
-	for i := 0; i < len(strArr); i++ {
-		if !strings.Contains(strArr[i], "ad") {
-			ret = append(ret, strArr[i])
-		}
-	}
-	return ret
+func solution(my_string string) []string {
+	return strings.Split(my_string, " ")
 }
 
 func main() {
-	r := solution([]string{"and", "notad", "abcd"})
+	r := solution("i love you")
 	fmt.Println(r)
 
-	// r = solution([]string{"there", "are", "no", "a", "ds"})
+	// r = solution("programmers")
 	// fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
