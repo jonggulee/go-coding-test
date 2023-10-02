@@ -6,11 +6,11 @@ import (
 )
 
 func solution(my_string string) []string {
-	return strings.Split(my_string, " ")
+	return strings.Fields(my_string)
 }
 
 func main() {
-	r := solution("i love you")
+	r := solution(" i    love  you")
 	fmt.Println(r)
 
 	// r = solution("programmers")
