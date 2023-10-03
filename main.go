@@ -5,12 +5,18 @@ import (
 	"strings"
 )
 
-func solution(my_string string) []string {
-	return strings.Fields(my_string)
+func solution(myString string) []int {
+	ret := []int{}
+	splitX := strings.Split(myString, "x")
+	for i := 0; i < len(splitX); i++ {
+		count := len(splitX[i])
+		ret = append(ret, count)
+	}
+	return ret
 }
 
 func main() {
-	r := solution(" i    love  you")
+	r := solution("oxooxoxxox")
 	fmt.Println(r)
 
 	// r = solution("programmers")
