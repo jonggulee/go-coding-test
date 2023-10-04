@@ -2,25 +2,30 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
-func solution(myString string) []int {
-	ret := []int{}
+func solution(myString string) []string {
+	ret := []string{}
 	splitX := strings.Split(myString, "x")
 	for i := 0; i < len(splitX); i++ {
-		count := len(splitX[i])
-		ret = append(ret, count)
+		if splitX[i] != "" {
+			ret = append(ret, splitX[i])
+		}
 	}
+
+	sort.Strings(ret)
+
 	return ret
 }
 
 func main() {
-	r := solution("oxooxoxxox")
+	r := solution("axbxcxdx")
 	fmt.Println(r)
 
-	// r = solution("programmers")
-	// fmt.Println(r)
+	r = solution("dxccxbbbxaaaa")
+	fmt.Println(r)
 
 	// r = solution([]int{1, 1, 1})
 	// fmt.Println(r)
