@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(progresses []int, speeds []int) []int {
 	var result []int
 	var completeDays []int
@@ -26,18 +20,4 @@ func solution(progresses []int, speeds []int) []int {
 	}
 
 	return result
-}
-
-func main() {
-	r := solution([]int{93, 30, 55}, []int{1, 30, 5})
-	fmt.Println(r)
-
-	r = solution([]int{95, 90, 99, 99, 80, 99}, []int{1, 1, 1, 1, 1, 1})
-	fmt.Println(r)
-
-	// r = solution("40000 * 40000")
-	// fmt.Println(r)
-
-	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
-	// fmt.Println(r)
 }
