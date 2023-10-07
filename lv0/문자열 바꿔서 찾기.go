@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"strings"
-)
+import "strings"
 
 func solution(myString string, pat string) int {
 	chString := []rune{}
@@ -20,18 +15,4 @@ func solution(myString string, pat string) int {
 	}
 
 	return 0
-}
-
-func main() {
-	r := solution("ABBAA", "AABB")
-	fmt.Println(r)
-
-	r = solution("ABAB", "ABAB")
-	fmt.Println(r)
-
-	// r = solution("40000 * 40000")
-	// fmt.Println(r)
-
-	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
-	// fmt.Println(r)
 }
