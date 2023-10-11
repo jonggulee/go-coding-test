@@ -4,37 +4,21 @@ import (
 	"fmt"
 )
 
-func solution(myStr string) []string {
-	var result []string
-	var temp string
-
-	for _, ch := range myStr {
-		if ch == 'a' || ch == 'b' || ch == 'c' {
-			if len(temp) > 0 {
-				result = append(result, temp)
-			}
-			temp = ""
-		} else {
-			temp += string(ch)
+func solution(arr []int) []int {
+	var ret []int
+	for i := 0; i < len(arr); i++ {
+		for j := 0; j < arr[i]; j++ {
+			ret = append(ret, arr[i])
 		}
 	}
-
-	if len(temp) > 0 {
-		result = append(result, temp)
-	}
-
-	if len(result) == 0 {
-		return []string{"EMPTY"}
-	}
-
-	return result
+	return ret
 }
 
 func main() {
-	r := solution("baconlettucetomato")
+	r := solution([]int{5, 1, 4})
 	fmt.Println(r)
 
-	r = solution("abcd")
+	r = solution([]int{6, 6})
 	fmt.Println(r)
 
 	// r = solution("40000 * 40000")
