@@ -2,23 +2,18 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
-func solution(arr []int) []int {
-	var ret []int
-	for i := 0; i < len(arr); i++ {
-		for j := 0; j < arr[i]; j++ {
-			ret = append(ret, arr[i])
-		}
-	}
-	return ret
+func solution(n int) string {
+	return strconv.Itoa(n)
 }
 
 func main() {
-	r := solution([]int{5, 1, 4})
+	r := solution(123)
 	fmt.Println(r)
 
-	r = solution([]int{6, 6})
+	r = solution(2573)
 	fmt.Println(r)
 
 	// r = solution("40000 * 40000")
