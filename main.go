@@ -4,31 +4,34 @@ import (
 	"fmt"
 )
 
-func solution(arr []int) []int {
-	stk := []int{}
-	for i := 0; i < len(arr); i++ {
-		if len(stk) == 0 {
-			stk = append(stk, arr[i])
-		} else if stk[len(stk)-1] == arr[i] {
-			stk = stk[:len(stk)-1]
-		} else {
-			stk = append(stk, arr[i])
+func solution(arr []int, k int) []int {
+	m := make(map[int]bool)
+	res := make([]int, 0)
+
+	for _, v := range arr {
+		if !m[v] {
+			m[v] = true
+			res = append(res, v)
+		}
+
+		if len(res) == k {
+			break
 		}
 	}
 
-	if len(stk) == 0 {
-		return []int{-1}
+	for len(res) < k {
+		res = append(res, -1)
 	}
 
-	return stk
+	return res
 }
 
 func main() {
-	r := solution([]int{0, 1, 1, 1, 0})
+	r := solution([]int{0, 1, 1, 2, 2, 3}, 3)
 	fmt.Println(r)
 
-	// r = solution(2573)
-	// fmt.Println(r)
+	r = solution([]int{0, 1, 1, 1, 1}, 4)
+	fmt.Println(r)
 
 	// r = solution("40000 * 40000")
 	// fmt.Println(r)
