@@ -4,33 +4,30 @@ import (
 	"fmt"
 )
 
-func solution(arr []int, k int) []int {
-	m := make(map[int]bool)
-	res := make([]int, 0)
+func solution(arr []int) []int {
+	length := len(arr)
 
-	for _, v := range arr {
-		if !m[v] {
-			m[v] = true
-			res = append(res, v)
-		}
-
-		if len(res) == k {
-			break
-		}
+	if length > 0 && (length&(length-1)) == 0 {
+		return arr
 	}
 
-	for len(res) < k {
-		res = append(res, -1)
+	next := 1
+	for next < length {
+		next *= 2
 	}
 
-	return res
+	for i := length; i < next; i++ {
+		arr = append(arr, 0)
+	}
+
+	return arr
 }
 
 func main() {
-	r := solution([]int{0, 1, 1, 2, 2, 3}, 3)
+	r := solution([]int{1, 2, 3, 4, 5, 6})
 	fmt.Println(r)
 
-	r = solution([]int{0, 1, 1, 1, 1}, 4)
+	r = solution([]int{58, 172, 746, 89})
 	fmt.Println(r)
 
 	// r = solution("40000 * 40000")
