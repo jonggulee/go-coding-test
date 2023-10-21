@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(arr1 []int, arr2 []int) int {
 	sumArr1 := 0
 	sumArr2 := 0
@@ -26,18 +20,4 @@ func solution(arr1 []int, arr2 []int) int {
 			return -1
 		}
 	}
-}
-
-func main() {
-	r := solution([]int{49, 13}, []int{70, 11, 2})
-	fmt.Println(r)
-
-	r = solution([]int{100, 17, 84, 1}, []int{55, 12, 65, 36})
-	fmt.Println(r)
-
-	r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
-	fmt.Println(r)
-
-	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
-	// fmt.Println(r)
 }
