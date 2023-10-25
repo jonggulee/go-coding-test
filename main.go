@@ -4,20 +4,26 @@ import (
 	"fmt"
 )
 
-func solution(num_str string) int {
-	res := 0
-	for _, v := range num_str {
-		res += int(v - '0')
+func solution(arr []int, n int) []int {
+	for i := 0; len(arr) > i; i++ {
+		if len(arr)%2 != 0 {
+			if i%2 == 0 {
+				arr[i] = arr[i] + n
+			}
+		} else {
+			if i%2 != 0 {
+				arr[i] = arr[i] + n
+			}
+		}
 	}
-
-	return res
+	return arr
 }
 
 func main() {
-	r := solution("123456789")
+	r := solution([]int{49, 12, 100, 276, 33}, 27)
 	fmt.Println(r)
 
-	r = solution("1000000")
+	r = solution([]int{444, 555, 666, 777}, 100)
 	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
