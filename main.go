@@ -2,18 +2,20 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
-func solution(flo float64) int {
-	return int(flo)
+func solution(n_str string) int {
+	nInt, _ := strconv.Atoi(n_str)
+	return nInt
 }
 
 func main() {
-	r := solution(1.42)
+	r := solution("10")
 	fmt.Println(r)
 
-	// r = solution([]int{444, 555, 666, 777}, 100)
-	// fmt.Println(r)
+	r = solution("8542")
+	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
 	// fmt.Println(r)
