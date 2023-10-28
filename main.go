@@ -2,16 +2,14 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
-func solution(num_list []int) []int {
-	sort.Ints(num_list)
-	return num_list[5:]
+func solution(flo float64) int {
+	return int(flo)
 }
 
 func main() {
-	r := solution([]int{12, 4, 15, 46, 38, 1, 14, 56, 32, 10})
+	r := solution(1.42)
 	fmt.Println(r)
 
 	// r = solution([]int{444, 555, 666, 777}, 100)
