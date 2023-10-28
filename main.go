@@ -6,19 +6,12 @@ import (
 )
 
 func solution(num_list []int) []int {
-	res := make([]int, 5)
-
 	sort.Ints(num_list)
-
-	for i := 0; i < 5; i++ {
-		res[i] = num_list[i]
-	}
-
-	return res
+	return num_list[5:]
 }
 
 func main() {
-	r := solution([]int{12, 4, 15, 46, 38, 1, 14})
+	r := solution([]int{12, 4, 15, 46, 38, 1, 14, 56, 32, 10})
 	fmt.Println(r)
 
 	// r = solution([]int{444, 555, 666, 777}, 100)
