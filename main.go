@@ -2,29 +2,21 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
-func solution(arr []int, delete_list []int) []int {
-	res := []int{}
-	deleteMap := make(map[int]bool)
-
-	for _, d := range delete_list {
-		deleteMap[d] = true
+func solution(my_string string, target string) int {
+	if strings.Contains(my_string, target) {
+		return 1
 	}
-
-	for _, v := range arr {
-		if !deleteMap[v] {
-			res = append(res, v)
-		}
-	}
-	return res
+	return 0
 }
 
 func main() {
-	r := solution([]int{293, 1000, 395, 678, 94}, []int{94, 777, 104, 1000, 1, 12})
+	r := solution("banana", "ana")
 	fmt.Println(r)
 
-	r = solution([]int{110, 66, 439, 785, 1}, []int{377, 823, 119, 43})
+	r = solution("banana", "wxyz")
 	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
