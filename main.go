@@ -4,48 +4,23 @@ import (
 	"fmt"
 )
 
-type Item struct {
-	priority int
-	location int
-}
-
-func solution(priorities []int, location int) int {
-	queue := make([]Item, len(priorities))
-	for i, q := range priorities {
-		queue[i] = Item{q, i}
-	}
-
-	count := 0
-	for len(queue) > 0 {
-		item := queue[0]
-		queue = queue[1:]
-
-		highest := true
-		for _, q := range queue {
-			if q.priority > item.priority {
-				highest = false
-				break
-			}
-		}
-
-		if highest {
-			count++
-			if item.location == location {
-				return count
-			}
+func solution(n_str string) string {
+	for {
+		if n_str[0] == '0' {
+			n_str = n_str[1:]
 		} else {
-			queue = append(queue, item)
+			break
 		}
 	}
 
-	return 0
+	return n_str
 }
 
 func main() {
-	r := solution([]int{2, 1, 3, 2}, 2)
+	r := solution("0010")
 	fmt.Println(r)
 
-	r = solution([]int{1, 1, 9, 1, 1, 1}, 0)
+	r = solution("854020")
 	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
