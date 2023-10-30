@@ -5,18 +5,23 @@ import (
 	"strings"
 )
 
-func solution(str1 string, str2 string) int {
-	if strings.Contains(str2, str1) {
-		return 1
+func solution(str_list []string, ex string) string {
+	res := ""
+
+	for _, str := range str_list {
+		if !strings.Contains(str, ex) {
+			res += str
+		}
 	}
-	return 0
+
+	return res
 }
 
 func main() {
-	r := solution("abc", "aabcc")
+	r := solution([]string{"abc", "def", "ghi"}, "ef")
 	fmt.Println(r)
 
-	r = solution("tbt", "tbbttb")
+	r = solution([]string{"abc", "bbc", "cbc"}, "c")
 	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
