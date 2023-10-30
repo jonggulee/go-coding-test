@@ -5,18 +5,18 @@ import (
 	"strings"
 )
 
-func solution(my_string string, target string) int {
-	if strings.Contains(my_string, target) {
+func solution(str1 string, str2 string) int {
+	if strings.Contains(str2, str1) {
 		return 1
 	}
 	return 0
 }
 
 func main() {
-	r := solution("banana", "ana")
+	r := solution("abc", "aabcc")
 	fmt.Println(r)
 
-	r = solution("banana", "wxyz")
+	r = solution("tbt", "tbbttb")
 	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 3, 4, 5}, []int{3, 3, 3, 3, 3})
