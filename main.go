@@ -4,28 +4,28 @@ import (
 	"fmt"
 )
 
-func solution(order []string) int {
-	sum := 0
-	for _, v := range order {
-		switch v {
-		case "americano", "americanoice", "iceamericano", "anything":
-			sum += 4500
-		case "hotamericano", "americanohot":
-			sum += 4500
-		case "cafelatteice", "icecafelatte", "cafelatte":
-			sum += 5000
-		case "hotcafelatte", "cafelattehot":
-			sum += 5000
+func solution(picture []string, k int) []string {
+	var res []string
+	for _, row := range picture {
+		expandedRow := ""
+		for _, pixel := range row {
+			for i := 0; i < k; i++ {
+				expandedRow += string(pixel)
+			}
+		}
+
+		for i := 0; i < k; i++ {
+			res = append(res, expandedRow)
 		}
 	}
-	return sum
+	return res
 }
 
 func main() {
-	r := solution([]string{"cafelatte", "americanoice", "hotcafelatte", "anything"})
+	r := solution([]string{".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."}, 2)
 	fmt.Println(r)
 
-	r = solution([]string{"americanoice", "americano", "iceamericano"})
+	r = solution([]string{"x.x", ".x.", "x.x"}, 3)
 	fmt.Println(r)
 
 	// r = solution(2, 4)
