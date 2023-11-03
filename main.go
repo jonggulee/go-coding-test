@@ -4,28 +4,21 @@ import (
 	"fmt"
 )
 
-func solution(picture []string, k int) []string {
-	var res []string
-	for _, row := range picture {
-		expandedRow := ""
-		for _, pixel := range row {
-			for i := 0; i < k; i++ {
-				expandedRow += string(pixel)
-			}
-		}
-
-		for i := 0; i < k; i++ {
-			res = append(res, expandedRow)
+func solution(myString string) string {
+	byteArray := []byte(myString)
+	for i := 0; i < len(myString); i++ {
+		if byteArray[i] < 'l' {
+			byteArray[i] = 'l'
 		}
 	}
-	return res
+	return string(byteArray)
 }
 
 func main() {
-	r := solution([]string{".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."}, 2)
+	r := solution("abcdevwxyz")
 	fmt.Println(r)
 
-	r = solution([]string{"x.x", ".x.", "x.x"}, 3)
+	r = solution("jjnnllkkmm")
 	fmt.Println(r)
 
 	// r = solution(2, 4)
