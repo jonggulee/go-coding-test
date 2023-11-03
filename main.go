@@ -4,25 +4,24 @@ import (
 	"fmt"
 )
 
-func solution(myString string) string {
-	byteArray := []byte(myString)
-	for i := 0; i < len(myString); i++ {
-		if byteArray[i] < 'l' {
-			byteArray[i] = 'l'
-		}
+func solution(n int) [][]int {
+	answer := make([][]int, n)
+	for i := 0; i < n; i++ {
+		answer[i] = make([]int, n)
+		answer[i][i] = 1
 	}
-	return string(byteArray)
+	return answer
 }
 
 func main() {
-	r := solution("abcdevwxyz")
+	r := solution(3)
 	fmt.Println(r)
 
-	r = solution("jjnnllkkmm")
+	r = solution(6)
 	fmt.Println(r)
 
-	// r = solution(2, 4)
-	// fmt.Println(r)
+	r = solution(1)
+	fmt.Println(r)
 
 	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
 	// fmt.Println(r)
