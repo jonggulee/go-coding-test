@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(n int) [][]int {
 	spiral := make([][]int, n)
 
@@ -29,18 +23,4 @@ func solution(n int) [][]int {
 	}
 
 	return spiral
-}
-
-func main() {
-	r := solution(4)
-	fmt.Println(r)
-
-	// r = solution(5)
-	// fmt.Println(r)
-
-	// r = solution(1)
-	// fmt.Println(r)
-
-	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
-	// fmt.Println(r)
 }
