@@ -4,39 +4,26 @@ import (
 	"fmt"
 )
 
-func solution(n int) [][]int {
-	spiral := make([][]int, n)
-
-	for i := range spiral {
-		spiral[i] = make([]int, n)
-	}
-
-	dx := [4]int{0, 1, 0, -1}
-	dy := [4]int{1, 0, -1, 0}
-	x, y, d := 0, 0, 0
-
-	for i := 1; i <= n*n; i++ {
-		spiral[x][y] = i
-		nx, ny := x+dx[d], y+dy[d]
-
-		if nx < 0 || ny < 0 || nx >= n || ny >= n || spiral[nx][ny] != 0 {
-			d = (d + 1) % 4
-			nx = x + dx[d]
-			ny = y + dy[d]
+func solution(arr [][]int) int {
+	res := 1
+	for i := 0; i < len(arr); i++ {
+		for j := 0; j < len(arr); j++ {
+			if arr[i][j] == arr[j][i] {
+				res *= 1
+			} else {
+				res *= 0
+			}
 		}
-
-		x, y = nx, ny
 	}
-
-	return spiral
+	return res
 }
 
 func main() {
-	r := solution(4)
+	r := solution([][]int{{5, 192, 33}, {192, 72, 95}, {33, 95, 999}})
 	fmt.Println(r)
 
-	// r = solution(5)
-	// fmt.Println(r)
+	r = solution([][]int{{19, 498, 258, 587}, {3, 93, 7, 754}, {258, 7, 1000, 723}, {587, 754, 723, 81}})
+	fmt.Println(r)
 
 	// r = solution(1)
 	// fmt.Println(r)
