@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(num int) int {
 	if num == 1 {
 		return 0
@@ -22,18 +16,4 @@ func solution(num int) int {
 	}
 
 	return -1
-}
-
-func main() {
-	r := solution(6)
-	fmt.Println(r)
-
-	r = solution(16)
-	fmt.Println(r)
-
-	r = solution(626331)
-	fmt.Println(r)
-
-	// r = solution(13)
-	// fmt.Println(r)
 }
