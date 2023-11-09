@@ -2,29 +2,31 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
-func solution(n int64) int64 {
-	sqrt := math.Sqrt(float64(n))
+func solution(x int) bool {
+	original := x
+	sumOfDigits := 0
 
-	if sqrt == float64(int64(sqrt)) {
-		return int64(sqrt+1) * int64(sqrt+1)
+	for x > 0 {
+		fmt.Println(x, sumOfDigits)
+		sumOfDigits += x % 10
+		x /= 10
 	}
 
-	return -1
+	return original%sumOfDigits == 0
 }
 
 func main() {
-	r := solution(121)
+	r := solution(10)
 	fmt.Println(r)
 
 	r = solution(12)
 	fmt.Println(r)
 
-	// r = solution(123456, 7)
-	// fmt.Println(r)
+	r = solution(11)
+	fmt.Println(r)
 
-	// r = solution([]int{1, 2, 1, 2, 1, 10, 2, 1})
-	// fmt.Println(r)
+	r = solution(13)
+	fmt.Println(r)
 }
