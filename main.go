@@ -2,28 +2,34 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
-func solution(absolutes []int, signs []bool) int {
-	var sum int
-	for i, v := range absolutes {
-		if signs[i] {
-			sum += v
-		} else {
-			sum -= v
+func solution(arr []int, divisor int) []int {
+	res := []int{}
+	for _, v := range arr {
+		if v%divisor == 0 {
+			res = append(res, v)
 		}
 	}
-	return sum
+
+	if len(res) == 0 {
+		return []int{-1}
+	}
+
+	sort.Ints(res)
+	return res
 }
+
 func main() {
-	r := solution([]int{4, 7, 12}, []bool{true, false, true})
+	r := solution([]int{5, 9, 7, 10}, 5)
 	fmt.Println(r)
 
-	r = solution([]int{1, 2, 3}, []bool{false, false, true})
+	r = solution([]int{2, 36, 1, 3}, 1)
 	fmt.Println(r)
 
-	// r = solution(626331)
-	// fmt.Println(r)
+	r = solution([]int{3, 2, 6}, 10)
+	fmt.Println(r)
 
 	// r = solution(13)
 	// fmt.Println(r)
