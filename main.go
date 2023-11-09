@@ -2,19 +2,21 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-func solution(n int) int {
-	for i := 1; i <= n; i++ {
-		if n%i == 1 {
-			return i
-		}
+func solution(n int64) int64 {
+	sqrt := math.Sqrt(float64(n))
+
+	if sqrt == float64(int64(sqrt)) {
+		return int64(sqrt+1) * int64(sqrt+1)
 	}
-	return 0
+
+	return -1
 }
 
 func main() {
-	r := solution(10)
+	r := solution(121)
 	fmt.Println(r)
 
 	r = solution(12)
