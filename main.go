@@ -4,35 +4,26 @@ import (
 	"fmt"
 )
 
-func solution(num int) int {
-	if num == 1 {
-		return 0
-	}
-
-	for i := 1; i <= 500; i++ {
-		if num%2 == 0 {
-			num = num / 2
+func solution(absolutes []int, signs []bool) int {
+	var sum int
+	for i, v := range absolutes {
+		if signs[i] {
+			sum += v
 		} else {
-			num = num*3 + 1
-		}
-
-		if num == 1 {
-			return i
+			sum -= v
 		}
 	}
-
-	return -1
+	return sum
 }
-
 func main() {
-	r := solution(6)
+	r := solution([]int{4, 7, 12}, []bool{true, false, true})
 	fmt.Println(r)
 
-	r = solution(16)
+	r = solution([]int{1, 2, 3}, []bool{false, false, true})
 	fmt.Println(r)
 
-	r = solution(626331)
-	fmt.Println(r)
+	// r = solution(626331)
+	// fmt.Println(r)
 
 	// r = solution(13)
 	// fmt.Println(r)
