@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(arr []int) []int {
 	res := []int{}
 	if len(arr) <= 1 {
@@ -24,18 +18,4 @@ func solution(arr []int) []int {
 	}
 
 	return res
-}
-
-func main() {
-	r := solution([]int{4, 3, 2, 1})
-	fmt.Println(r)
-
-	r = solution([]int{10})
-	fmt.Println(r)
-
-	// r = solution([]int{3, 2, 6}, 10)
-	// fmt.Println(r)
-
-	// r = solution(13)
-	// fmt.Println(r)
 }
