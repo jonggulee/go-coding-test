@@ -4,33 +4,19 @@ import (
 	"fmt"
 )
 
-func solution(arr []int) []int {
-	res := []int{}
-	if len(arr) <= 1 {
-		return []int{-1}
+func solution(a []int, b []int) int {
+	res := 0
+	for i := 0; i < len(a); i++ {
+		res += a[i] * b[i]
 	}
-
-	min := arr[0]
-	for i := 1; i < len(arr); i++ {
-		if min > arr[i] {
-			min = arr[i]
-		}
-	}
-
-	for i := 0; i < len(arr); i++ {
-		if arr[i] != min {
-			res = append(res, arr[i])
-		}
-	}
-
 	return res
 }
 
 func main() {
-	r := solution([]int{4, 3, 2, 1})
+	r := solution([]int{1, 2, 3, 4}, []int{-3, -1, 0, 2})
 	fmt.Println(r)
 
-	r = solution([]int{10})
+	r = solution([]int{-1, 0, 1}, []int{1, 0, -1})
 	fmt.Println(r)
 
 	// r = solution([]int{3, 2, 6}, 10)
