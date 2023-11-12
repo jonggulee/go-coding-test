@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 func solution(left int, right int) int {
 	res := 0
 	for i := left; i <= right; i++ {
@@ -22,18 +16,4 @@ func solution(left int, right int) int {
 	}
 
 	return res
-}
-
-func main() {
-	r := solution(13, 17)
-	fmt.Println(r)
-
-	r = solution(24, 27)
-	fmt.Println(r)
-
-	// r = solution([]int{3, 2, 6}, 10)
-	// fmt.Println(r)
-
-	// r = solution(13)
-	// fmt.Println(r)
 }
