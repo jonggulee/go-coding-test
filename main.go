@@ -2,34 +2,25 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
-func solution(left int, right int) int {
-	res := 0
-	for i := left; i <= right; i++ {
-		divCount := 0
-		for j := 1; j <= i; j++ {
-			if i%j == 0 {
-				divCount += 1
-			}
-		}
+func solution(s string) string {
+	bytes := []byte(s)
 
-		if divCount%2 == 0 {
-			res += i
-		} else {
-			res -= i
-		}
-	}
+	sort.Slice(bytes, func(i, j int) bool {
+		return bytes[i] > bytes[j]
+	})
 
-	return res
+	return string(bytes)
 }
 
 func main() {
-	r := solution(13, 17)
+	r := solution("Zbcdefg")
 	fmt.Println(r)
 
-	r = solution(24, 27)
-	fmt.Println(r)
+	// r = solution(24, 27)
+	// fmt.Println(r)
 
 	// r = solution([]int{3, 2, 6}, 10)
 	// fmt.Println(r)
