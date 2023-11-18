@@ -2,21 +2,24 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
-func solution(s string) string {
-	bytes := []byte(s)
+func solution(price int, money int, count int) int64 {
+	sum := 0
 
-	sort.Slice(bytes, func(i, j int) bool {
-		return bytes[i] > bytes[j]
-	})
+	for i := 1; i <= count; i++ {
+		sum += (price * i)
+	}
 
-	return string(bytes)
+	if sum < money {
+		return 0
+	} else {
+		return int64(sum - money)
+	}
 }
 
 func main() {
-	r := solution("Zbcdefg")
+	r := solution(3, 20, 4)
 	fmt.Println(r)
 
 	// r = solution(24, 27)
