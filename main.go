@@ -4,26 +4,25 @@ import (
 	"fmt"
 )
 
-func solution(price int, money int, count int) int64 {
-	sum := 0
-
-	for i := 1; i <= count; i++ {
-		sum += (price * i)
+func solution(s string) bool {
+	if len(s) != 4 && len(s) != 6 {
+		return false
 	}
 
-	if sum < money {
-		return 0
-	} else {
-		return int64(sum - money)
+	for _, v := range s {
+		if v < '0' || v > '9' {
+			return false
+		}
 	}
+	return true
 }
 
 func main() {
-	r := solution(3, 20, 4)
+	r := solution("a234")
 	fmt.Println(r)
 
-	// r = solution(24, 27)
-	// fmt.Println(r)
+	r = solution("1234")
+	fmt.Println(r)
 
 	// r = solution([]int{3, 2, 6}, 10)
 	// fmt.Println(r)
