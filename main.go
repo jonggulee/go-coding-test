@@ -2,38 +2,32 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-func solution(s string) string {
-	var ret string
-	var indexCount int
+func solution(number []int) int {
+	count := 0
 
-	for _, v := range s {
-		if v == ' ' {
-			indexCount = 0
-			ret += " "
-			continue
+	for str := 0; str < len(number)-2; str++ {
+		for mid := str + 1; mid < len(number)-1; mid++ {
+			for end := mid + 1; end < len(number); end++ {
+				if (number[str] + number[mid] + number[end]) == 0 {
+					count += 1
+				}
+			}
 		}
-		if indexCount%2 == 0 {
-			ret += strings.ToUpper(string(v))
-		} else {
-			ret += strings.ToLower(string(v))
-		}
-		indexCount++
 	}
-	return ret
+	return count
 }
 
 func main() {
-	r := solution("try hello world")
+	r := solution([]int{-2, 3, 0, 2, -5})
 	fmt.Println(r)
 
-	// r = solution([][]int{{1}, {2}}, [][]int{{3}, {4}})
-	// fmt.Println(r)
+	r = solution([]int{-3, -2, -1, 0, 1, 2, 3})
+	fmt.Println(r)
 
-	// r = solution([]int{3, 2, 6}, 10)
-	// fmt.Println(r)
+	r = solution([]int{-1, 1, -1, 1})
+	fmt.Println(r)
 
 	// r = solution(13)
 	// fmt.Println(r)
