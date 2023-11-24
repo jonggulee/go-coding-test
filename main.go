@@ -4,29 +4,39 @@ import (
 	"fmt"
 )
 
-func solution(number []int) int {
-	count := 0
+func solution(s string, n int) string {
+	ret := ""
 
-	for str := 0; str < len(number)-2; str++ {
-		for mid := str + 1; mid < len(number)-1; mid++ {
-			for end := mid + 1; end < len(number); end++ {
-				if (number[str] + number[mid] + number[end]) == 0 {
-					count += 1
-				}
-			}
+	for _, v := range s {
+		if v >= 'a' && v <= 'z' {
+			ret += string((v-'a'+rune(n))%26 + 'a')
+		} else if v >= 'A' && v <= 'Z' {
+			ret += string((v-'A'+rune(n))%26 + 'A')
+		} else {
+			ret += " "
 		}
+
+		// if v == ' ' {
+		// 	ret += string(' ')
+		// } else if nextStr <= 'z' && nextStr >= 'a' || nextStr <= 'Z' && nextStr >= 'A' {
+		// 	ret += string(v + rune(n))
+		// } else if nextStr >= 'z' {
+		// 	ret += string('a' + nextStr - 'z' - 1)
+		// } else if nextStr >= 'Z' {
+		// 	ret += string('A' + nextStr - 'Z' - 1)
+		// }
 	}
-	return count
+	return ret
 }
 
 func main() {
-	r := solution([]int{-2, 3, 0, 2, -5})
+	r := solution("AB", 1)
 	fmt.Println(r)
 
-	r = solution([]int{-3, -2, -1, 0, 1, 2, 3})
+	r = solution("z", 3)
 	fmt.Println(r)
 
-	r = solution([]int{-1, 1, -1, 1})
+	r = solution("a B z", 4)
 	fmt.Println(r)
 
 	// r = solution(13)
